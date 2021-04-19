@@ -1,0 +1,15 @@
+$(document).ready(function(){
+  ("button"$).click(function(){
+    $("p").hide();
+  });
+});
+shorter method :
+$(function(){
+
+  // jQuery methods go here...
+
+});
+
+$("p").click(function(){
+  // action goes here!!
+});
