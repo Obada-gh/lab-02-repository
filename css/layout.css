@@ -1,17 +1,11 @@
-@media (max-width: 1000px) {
-   
-    .grid-container {
-      display: grid;
-      grid-template-areas:
-        'a a a a a a'
-        'b b b b b b'
-        'c c c c c c'
-        'd d d d d d'
-        'e e e f f f'
-        'g g g h h h'
-        'i i i i i i';
-      grid-gap: 10px;
-      background-color: #fc0000;
-      padding: 10px;
-    }
-  }
+header {
+  background-color: royalblue;
+  border: sienna solid;
+}
+
+footer{
+  background-color: rgb(248, 185, 10);
+  border: rgb(233, 83, 14) solid;
+  text-align: center;
+}
+
