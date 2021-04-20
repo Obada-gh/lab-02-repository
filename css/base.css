@@ -1,6 +1,17 @@
-div {
-  float: left;
-  border: red solid;
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
+  flex-direction:row;
+}
+
+#content > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 100px;
+  text-align: center;
+  
+  font-size: 20px;
 }
 
 
