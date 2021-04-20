@@ -1,24 +1,21 @@
 'use strict';
-let imgArr = [];
-let keyArr = [];
 
-function Img(url,name,description,keyword,horns) {
-  this.url=url;
-  this.name=name;
-  this.description=description;
-  this.keyword=keyword;
-  this.horns=horns;
+$('#select').change(function(){
+  $( '#content' ).empty();
+  loadImg();
+});
+
+function loadImg() {
+  $.getJSON('page-1.json', function (data) {
+    $.each(data, function(i,f) {
+      $('#select').append('<option value="'+f.keyword+'">'+f.keyword+'</option>');
+      var value = $('#select').val();
+      if(value == '0'){
+        $('#content').append('<div><img height="80" width="100" src="' + f.image_url + '">  </div>');
+      }
+      if(value == f.keyword){
+        $('#content').append('<div><img height="80" width="100" src="' + f.image_url + '">  </div>');
+      }
+    });
+  });
 }
-
-Img.prototype.render = function() {
-  $('main').append(`
-  <div class=${this.name}>
-  <h2>${this.name}
-  <img src="${this.url}"/>
-  <p>${this.horns}</p>`
-  );
-
-};
-
-let obj = new Img{}
-
