@@ -7,15 +7,22 @@ $('#select').change(function(){
 
 function loadImg() {
   $.getJSON('data/page-2.json', function (data) {
-    $.each(data, function(i,f) {
-      $('#select').append('<option value="'+f.keyword+'">'+f.keyword+'</option>');
+    $.each(data,function(index,item){
+      $('#select').append('<option value="'+item.keyword+'">'+item.keyword+'</option>');
+      var html = ''
+          + '<div class="dataItem">'
+              + '<p>{{title}} <br> <img src={{image_url}} alt="Girl in a jacket" width="200" height="200"> <br>{{keyword}} <br> {{horns}} </p>'
+          + '</div>';
       var value = $('#select').val();
       if(value === '0'){
-        $('#content').append('<div><img height="80" width="100" src="' + f.image_url + '"> <br>'+f.title+' horns: '+f.horns+' </div>');
+        $('#content').append(Mustache.render(html,item));
+
       }
-      if(value === f.keyword){
-        $('#content').append('<div><img height="80" width="100" src="' + f.image_url + '"> <br>'+f.title+' horns: '+f.horns+' </div>');
+      if(value === item.keyword){
+        $('#content').append(Mustache.render(html,item));
       }
+
+
     });
   });
 }
