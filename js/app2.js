@@ -6,7 +6,7 @@ $('#select').change(function () {
 });
 
 function loadImg() {
-  $.getJSON('./data/page-2.json', function (data) {
+  $.getJSON('../data/page-2.json', function (data) {
     $.each(data, function (index, item) {
       $('#select').append('<option  value="' + item.keyword + '">' + item.keyword + '</option>');
       var html = ''
