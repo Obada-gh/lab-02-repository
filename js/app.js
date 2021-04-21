@@ -6,9 +6,10 @@ $('#select').change(function () {
 });
 
 function loadImg() {
-  $.getJSON('./data/page-1.json', function (data) {
+  $.getJSON('../data/page-1.json', function (data) {
     $.each(data, function (index, item) {
       $('#select').append('<option  value="' + item.keyword + '">' + item.keyword + '</option>');
+
       var html = ''
         + '<div class="dataItem" sortbytitle="{{title}}" sortbyid="{{horns}}">'
         + '<p>{{title}} <br> <img src={{image_url}} alt="Girl in a jacket" width="50" height="50"> <br>{{keyword}}  <br> {{horns}} </p>'
