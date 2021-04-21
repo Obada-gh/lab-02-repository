@@ -7,11 +7,14 @@
 
 #content > div {
   background-color: #f1f1f1;
-  width: 100px;
-  margin: 100px;
+  width: 50px;
+  margin: 50px;
   text-align: center;
   
-  font-size: 20px;
+  font-size: 10px;
+}
+a{
+  color: #f1f1f1;
 }
 
 

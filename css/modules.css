@@ -5,9 +5,13 @@ h1 {
   
   li {
     display: inline;
-    color: white;
+    font-size: large;
+    
   }
 
-  nav{
-    color: white;
+  a{
+    color: #f1f1f1;
+    
   }
+
+ 
