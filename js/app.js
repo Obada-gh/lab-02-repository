@@ -1,33 +1,44 @@
 'use strict';
-
+var page = 1;
 $('#select').change(function () {
   $('#content').empty();
   loadImg();
 });
 
+
+$("#page1").click(function(){
+  page = 1;
+  loadImg();
+})
+
+$("#page2").click(function(){
+  page = 2;
+  $('#content').empty();
+  loadImg();
+})
+
 function loadImg() {
-  $.getJSON('../data/page-1.json', function (data) {
-    $.each(data, function (index, item) {
-      $('#select').append('<option  value="' + item.keyword + '">' + item.keyword + '</option>');
 
-      var html = ''
-        + '<div class="dataItem" sortbytitle="{{title}}" sortbyid="{{horns}}">'
-        + '<p>{{title}} <br> <img src={{image_url}} alt="Girl in a jacket" width="50" height="50"> <br>{{keyword}}  <br> {{horns}} </p>'
-        + '</div>';
+  $.get(`data/page-${page}.json`).then(data=>{ $.each(data, function (index, item) {
+    $('#select').append('<option  value="' + item.keyword + '">' + item.keyword + '</option>');
 
-
-      var value = $('#select').val();
-      if (value === '0') {
-        $('#content').append(Mustache.render(html, item));
-
-      }
-      if (value === item.keyword) {
-        $('#content').append(Mustache.render(html, item));
-      }
+    var html = ''
+    + '<div class="dataItem" sortbytitle="{{title}}" sortbyid="{{horns}}">'
+    + '<p>{{title}} <br> <img src={{image_url}} alt="Girl in a jacket" width="50" height="50"> <br>{{keyword}}  <br> {{horns}} </p>'
+    + '</div>';
 
 
-    });
-  });
+    var value = $('#select').val();
+    if (value === '0') {
+      $('#content').append(Mustache.render(html, item));
+
+    }
+    if (value === item.keyword) {
+      $('#content').append(Mustache.render(html, item));
+    }
+
+
+  });});
 }
 
 $('#sort').change(function () {
@@ -51,3 +62,11 @@ $('#sort').change(function () {
   $('#content').html(items);
 
 });
+
+
+
+
+
+
+
+
